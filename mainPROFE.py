@@ -5,14 +5,13 @@ import random
 
 class Runner():
     
-    __customes = ("stitch4", "yoda","penguin","groot")
+    __customes = ("fish", "moray","octopus","prawn","turtle")
     
     def __init__(self,x=0,y=0):
         
-        ixCustome = random.randint(0,3)
+        ixCustome = random.randint(0,4)
         
-        self.custome = pygame.image.load("imagenes/{}.png".format(self.__customes[ixCustome]))
-        
+        self.custome = pygame.image.load("imagenes/profe/{}.png".format(self.__customes[ixCustome]))
         self.position = [x,y]
         self.name = ""
         
@@ -24,13 +23,13 @@ class Game():
     runners = []
     
     __posY = (160,200,240,280)
-    __names = ("Stitch","Yoda", "Penguin", "Groot")
+    __names = ("Stitch","Yoda", "Penguin", "Groot","Tortuga")
     __startLine = -5
     __finishLine = 620
     
     def __init__(self):
-        self.__screen = pygame.display.set_mode((640,480))
-        self.background = pygame.image.load("imagenes/background.png")
+        self.__screen = pygame.display.set_mode((1280,800))
+        self.background = pygame.image.load("imagenes/profe/background.png")
         pygame.display.set_caption("Carrera de bichos")
         
         for i in range(4):
@@ -59,13 +58,16 @@ class Game():
             #refrescar / renderizar la pantalla
             self.__screen.blit(self.background,(0,0)) #pinta la pantalla
             
-            
             self.__screen.blit(self.runners[0].custome,self.runners[0].position)
             self.__screen.blit(self.runners[1].custome,self.runners[1].position)
             self.__screen.blit(self.runners[2].custome,self.runners[2].position)
             self.__screen.blit(self.runners[3].custome,self.runners[3].position)
-            
+            '''
+            for runner in self.__runners:
+                self.__screen.blit(runner.custome,runner.position)
+
             pygame.display.flip()#refresca la pantalla
+            '''
             
             
         while True:

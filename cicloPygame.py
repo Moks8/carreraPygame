@@ -16,4 +16,6 @@ while not gameOver:
             gameOver = True
             
     pygame.display.flip()
+    
 pygame.quit()
+sys.exit()
